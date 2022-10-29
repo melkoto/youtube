@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script defer src="index.js"></script>
+    <title>DOM</title>
+</head>
+<body>
+<div>
+    <form id="survey-form" method="post">
+
+        <!-- ------------------Personal Details---------------------------- -->
+        <fieldset class="main">
+            <legend>Personal Details</legend>
+
+            <div class="name name1" data-name="Input your name">
+                <label>Name:
+                    <input name="user_name" placeholder="Enter name here" required type="text">
+                </label>
+            </div>
+
+            <div id="address_field">
+                <label>Address:
+                    <input id="address" name="address" placeholder="Enter address here" type="text">
+                </label>
+            </div>
+
+            <div>
+                <label>Email:
+                    <input id="email" name="user_email" placeholder="Enter email here" required type="email">
+                </label>
+            </div>
+
+            <div class="last-two">
+                <label>Phone Number:
+                    <input name="user_name" placeholder="Enter 10 digit number" type="text">
+                </label>
+            </div>
+
+            <div class="last-two">
+                <label>IQ:
+                    <input name="iq" placeholder="Enter IQ here" type="number">
+                </label>
+            </div>
+
+            <!-- ------------------Radio Buttons-------------------------------- -->
+            <div>
+                <label>Gender
+                    <input checked name="gender" type="radio" value="male"> Male<br>
+                    <input name="gender" type="radio" value="female"> Female<br>
+                </label>
+            </div>
+        </fieldset>
+
+        <!-- ------------------Checkboxes-------------------------------- -->
+        <fieldset class="info">
+            <label>Check All That Apply
+                <input checked name="work" type="checkbox" value="work"> I work full-time<br>
+                <input checked name="rich" type="checkbox" value="rich"> My parents are rich<br>
+                <input checked name="player" type="checkbox">I play football<br>
+            </label>
+        </fieldset>
+
+        <!-- -----------------Dropdown menus--------------------------------- -->
+        <fieldset>
+
+            <label>Education Level Completed:
+                <select id="dropdown2">
+                    <option value="University">University</option>
+                    <option value="College">College</option>
+                    <option value="Secondary">High School</option>
+                    <option value="None">None</option>
+                </select>
+            </label>
+        </fieldset>
+
+        <!-- --------------------Text Areas------------------------------ -->
+
+        <fieldset>
+            <legend>Answer</legend>
+            <div>
+                <label for="msg"></label>
+                <p>What is flex in css?</p>
+                <textarea cols="50" id="msg" name="user_message" placeholder="Enter Text Here" rows="4"></textarea>
+            </div>
+            <div>
+                <p>Please upload contact details for 2 references</p>
+                <label>
+                    <textarea cols="50" id="msg2" name="user_message" placeholder="Enter Text Here" rows="4"></textarea>
+                </label>
+            </div>
+            <p>Hai mucurgi surt kkhos</p>
+            <input type="file"/>
+        </fieldset>
+
+        <div id="submitButton">
+            <button id="submit" type="submit">Send</button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
