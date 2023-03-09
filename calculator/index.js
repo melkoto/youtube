@@ -1,4 +1,4 @@
-`
+```HTML
 <div class="container">
     <h1>Calculator</h1>
 
@@ -20,7 +20,7 @@
         <div class="calculation">1 + 2 = 3</div>
     </div>
 </div>
-`
+```
 const error = document.querySelector('.error')
 const input = document.querySelector('.input')
 const result = document.querySelector('.result')
