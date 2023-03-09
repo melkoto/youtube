@@ -1,22 +1,20 @@
 const error = document.querySelector('.error')
-const input = document.querySelector('.input')
-const result = document.querySelector('.result')
 const history = document.querySelector('.history')
 
-let firstNumber
-
 const allMathOperations = document.querySelectorAll('.math-operation')
-
 allMathOperations.forEach(mathOperation => {
     mathOperation.addEventListener('click', getMathOperation)
 })
 
+const input = document.querySelector('.input')
 input.addEventListener('keydown', getInput)
 
+const result = document.querySelector('.result')
 result.addEventListener('click', getResult)
 
-function getInput(event) {
+let firstNumber
 
+function getInput(event) {
     if (event) {
         if (!isNumeric(event)) {
             event.preventDefault()
@@ -25,7 +23,6 @@ function getInput(event) {
             return
         }
     }
-
     return input.value
 }
 
@@ -41,9 +38,7 @@ function getMathOperation(event) {
     currBtn.classList.add('current-operation')
 
     let first = getInput()
-
     if (!first) return
-
     firstNumber = Number(first)
 
     switch (event.target.innerText) {
@@ -92,7 +87,6 @@ function getResult() {
     }
 
     calculation += ` ${input.value} = `
-
     const second = Number(input.value)
 
     switch (operation) {
@@ -118,7 +112,6 @@ function getResult() {
 
 function showError() {
     error.style.display = 'block'
-
     setTimeout(() => {
         error.style.display = 'none'
     }, 1000)
@@ -131,10 +124,8 @@ function isNumeric(keyboardEvent) {
 
 window.addEventListener("beforeunload", () => {
     input.removeEventListener('keydown', getInput)
-
     allMathOperations.forEach(operation => {
         operation.removeEventListener('click', getMathOperation)
     })
-
     result.removeEventListener('click', getResult)
 });
