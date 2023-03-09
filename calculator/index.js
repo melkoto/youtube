@@ -1,26 +1,3 @@
-`
-<div class="container">
-    <h1>Calculator</h1>
-
-    <div class="error">Введите число</div>
-    <input type="text" class="input">
-
-    <div class="buttons">
-        <div class="math-operations">
-            <button class="math-operation addition">+</button>
-            <button class="math-operation subtraction">-</button>
-            <button class="math-operation division">/</button>
-            <button class="math-operation multiplication">x</button>
-        </div>
-        <button class="result">=</button>
-    </div>
-
-    <div class="history">
-        <h2>History</h2>
-        <div class="calculation">1 + 2 = 3</div>
-    </div>
-</div>
-`
 const error = document.querySelector('.error')
 const input = document.querySelector('.input')
 const result = document.querySelector('.result')
@@ -147,10 +124,9 @@ function showError() {
     }, 1000)
 }
 
-function isNumeric(event) {
-    const charCode = (event.which) ? event.which : event.keyCode;
-    return !(charCode > 31 && (charCode < 48 || charCode > 57));
-
+function isNumeric(keyboardEvent) {
+    const charCode = keyboardEvent.keyCode
+    return charCode > 47 && charCode < 58
 }
 
 window.addEventListener("beforeunload", () => {

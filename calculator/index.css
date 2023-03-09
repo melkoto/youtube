@@ -14,8 +14,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    height: 60vh;
 }
 
 .input {
