@@ -1,4 +1,4 @@
-```HTML
+`
 <div class="container">
     <h1>Calculator</h1>
 
@@ -20,13 +20,11 @@
         <div class="calculation">1 + 2 = 3</div>
     </div>
 </div>
-```
+`
 const error = document.querySelector('.error')
 const input = document.querySelector('.input')
 const result = document.querySelector('.result')
 const history = document.querySelector('.history')
-
-let hasInput = false
 
 let firstNumber
 
@@ -91,14 +89,11 @@ function getMathOperation(event) {
     history.append(div)
 
     input.value = ""
-    hasInput = true
-
     input.focus()
 }
 
 function getResult() {
-    if (!hasInput || !firstNumber) return
-    hasInput = false
+    if (!firstNumber) return
 
     const mathOperations = document.querySelectorAll('.math-operation')
     mathOperations.forEach(op => {
@@ -110,6 +105,14 @@ function getResult() {
     let calculation = lastCalculation.innerText
 
     const operation = calculation[calculation.length - 1]
+
+    if (!input.value) {
+        lastCalculation.remove()
+        showError()
+        firstNumber = null
+        input.focus()
+        return
+    }
 
     calculation += ` ${input.value} = `
 
