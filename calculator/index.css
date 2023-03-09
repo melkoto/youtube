@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 60vh;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.history {
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.buttons button {
+    width: 30px;
+    height: 30px;
+}
+
+.math-operations {
+    margin-bottom: 5px;
+}
+
+.current-operation {
+    background-color: #6fa7e0;
+    transform: scale(0.9);
+    border: none;
+}
+
+.error {
+    color: red;
+    margin-bottom: 5px;
+    display: none;
+}
