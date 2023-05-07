@@ -7,12 +7,13 @@
 class Node {
     /**
      * Creates an instance of Node.
-     * @param {T} value The value to store in the node.
+     * @param {T} value. The value to store in the node.
+     * @param {Node} next. Link to the next node.
      * @memberof Node
      */
-    constructor(value) {
+    constructor(value, next = null) {
         this.value = value;
-        this.next = null;
+        this.next = next;
     }
 }
 
