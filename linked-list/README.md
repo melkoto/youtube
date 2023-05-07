@@ -2,44 +2,76 @@
 
 ## Разница между массивом и однонаправленным связным списком
 **Массив**:
-* Время доступа к элементу: O(1)
-* Время вставки в конец: O(1)
-* Время вставки в начало или середину: O(n)
-* Время удаления: O(n)
+* Время доступа к элементу: `O(1)`
+* Время вставки в конец: `O(1)`
+* Время вставки в начало: `O(n)`
+* Время удаления: `O(n)` при удалении элемента из массива, `O(1)` при удалении последнего элемента
 * Память: выделяется непрерывный блок памяти для всех элементов, размер массива фиксирован при создании.
 
 **Однонаправленный связный список**:
-* Время доступа к элементу: O(n)
-* Время вставки в начало и конец: O(1)
-* Время вставки в конец: O(n)
-* Время удаления: O(1) при удалении первого элемента, O(n) при удалении элемента из середины списка
+* Время доступа к элементу: `O(n)`
+* Время вставки в начало: `O(1)`
+* Время вставки в конец: `O(n)`
+* Время удаления: `O(1)` при удалении первого элемента, `O(n)` при удалении элемента из середины или конца списка
 * Память: выделяется отдельный блок памяти для каждого элемента, размер списка может меняться динамически.
 
-## Хранение массива и связного списка в памяти
-Картинки ниже взяты на сайте [levelup.gitconnected.com](levelup.gitconnected.com) из статьи [Array vs Linked List Data Structures](https://levelup.gitconnected.com/array-vs-linked-list-data-structure-c5c0ff405f16)
+## Связный список в JS
+Представьте, что у нас есть 3 объекта `node1`, `node2` и `node3`:
+```JS
+const node1 = {
+    val: 1,
+    next: null
+}
 
-### Массив
-![array](readme-assets/array.jpeg)   
+const node2 = {
+    val: 2,
+    next: null
+}
 
-### Связный список
-![ssl](readme-assets/sll.jpeg)
+const node3 = {
+    val: 3,
+    next: null
+}
 
-### Добавление в массив
-![addArr1](readme-assets/add-to-arr-1.jpeg)
+```
 
-Если добавить 8 в конец массива, где следующая ячейка занята
-![aaArr-2](readme-assets/save-to-arr-2.jpeg)
-![aaArr-3](readme-assets/save-to-arr-3.jpeg)
+Если `node1.next` указать на объект `node2`, то у нас получится СВЯЗНЫЙ СПИСОК:
+```JS
+const linkedList = node1
 
+node1.next = node2
+node2.next = node3
+```
 
+В коде выше мы создали переменную `linkedList`, которая равна `node1` (`node1` - начало связного списка). Далее в `node1.next` указали ссылку на объект `node2`. Почему ссылку? В JS переменная `node1` (node2, node3) хранит в себе не сам объект, а ссылку на память, где хранится объект. Если сделать `console.log(linkedList)`, то мы получим:
+
+```JS
+// {val: 1, next: {val: 2, next: {val: 3, next: null}}}
+```
+
+Если `next` указывает на `null`, то это конец связного списка.   
+Для того чтобы создавать объекты (ноды) связного списка, мы добавим класс `Node`:
 
 ```JS
 class Node {
-  constructor(value) {
+  constructor(value, next = null) {
     this.value = value;
-    this.next = null;
+    this.next = next;
   }
 }
+```
+
+Теперь давайте создадим 3 объекта `node1`, `node2` и `node3` используя класс `Node`:
+```JS
+const node1 = new Node(1)
+const node2 = new Node(2)
+const node3 = new Node(3)
+
+node1.next = node2
+node2.next = node3
+
+const linkedList = node1
+console.log(linkedList) // {val: 1, next: {val: 2, next: {val: 3, next: null}}}
 ```
 
 ## Методы
@@ -91,6 +123,3 @@ ___
 function getAt(index: number): Node {}
 ```
 ![get-at](animation/get-at.gif)
-
-## Links
-* [Array vs Linked List Data Structures](https://levelup.gitconnected.com/array-vs-linked-list-data-structure-c5c0ff405f16)
