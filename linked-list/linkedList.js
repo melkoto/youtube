@@ -8,7 +8,7 @@ class Node {
     /**
      * Creates an instance of Node.
      * @param {T} value. The value to store in the node.
-     * @param {Node} next. Link to the next node.
+     * @param {Node<T>} next. Link to the next node.
      * @memberof Node
      */
     constructor(value, next = null) {
